@@ -36,7 +36,8 @@ window.addEventListener('DOMContentLoaded', event => {
             target: '#mainNav',
             rootMargin: '0px 0px -40%',
         });
-    };
+    }
+    ;
 
     // Collapse responsive navbar when toggler is visible
     const navbarToggler = document.body.querySelector('.navbar-toggler');
@@ -54,6 +55,44 @@ window.addEventListener('DOMContentLoaded', event => {
     // Activate SimpleLightbox plugin for portfolio items
     new SimpleLightbox({
         elements: '#portfolio a.portfolio-box'
+    });
+
+        // Información de las computadoras
+        const computers = {
+        'Razer Blade 14': {
+        image: 'assets/img/portfolio/thumbnails/1.jpg',
+        description: 'Ideal para Gaming con alta potencia y rendimiento.',
+        price: '$2,500'
+    },
+        'Laptop 2': {
+        image: 'assets/img/portfolio/thumbnails/4.jpg',
+        description: 'Perfecta para gaming y diseño gráfico.',
+        price: '$1,800'
+    },
+        'Laptop 3': {
+        image: 'assets/img/portfolio/thumbnails/3.jpg',
+        description: 'Excelente rendimiento para negocios.',
+        price: '$1,200'
+    }
+    };
+
+        // Función para abrir el modal con los detalles de la computadora
+        function openComputerModal(computerName) {
+        const computer = computers[computerName];
+        document.getElementById('modalTitle').innerText = computerName;
+        document.getElementById('modalDescription').innerText = computer.description;
+        document.getElementById('modalImage').src = computer.image;
+        document.getElementById('modalPrice').innerText = computer.price;
+        var modal = new bootstrap.Modal(document.getElementById('computerModal'));
+        modal.show();
+    }
+
+        // Event listeners para los botones de comprar
+        document.querySelectorAll('.buy-button').forEach(button => {
+        button.addEventListener('click', function () {
+            const computerName = this.getAttribute('data-computer');
+            openComputerModal(computerName);
+        });
     });
 
 });

@@ -28,7 +28,7 @@
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link" href="#about">info</a></li>
                         <li class="nav-item"><a class="nav-link" href="#computadoras">Laptops</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">comprar</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#computerModal">comprar</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
                     </ul>
                 </div>
@@ -63,41 +63,63 @@
             </div>
         </section>
         <!-- Services-->
-        <!-- Sección de computadoras -->
         <section class="page-section" id="computadoras">
             <div class="container px-4 px-lg-5">
                 <h2 class="text-center mt-0">Nuestras Computadoras</h2>
                 <hr class="divider" />
                 <div class="row gx-4 gx-lg-5">
-                    <div class="col-lg-4 col-sm-6 d-flex align-items-stretch">
-                        <div class="mt-5 text-center w-100">
+                    <div class="col-lg-4 col-sm-6 text-center">
+                        <div class="mt-5">
                             <img class="img-fluid" src="assets/img/portfolio/thumbnails/1.jpg" alt="Laptop 1" />
                             <h3 class="h4 mb-2">Razer Blade 14</h3>
                             <p class="text-muted mb-0">Ideal para Gaming</p>
-                            <a class="btn btn-primary btn-xl mt-3" href="#comprar">Comprar</a>
+                            <button class="btn btn-primary btn-xl mt-3 buy-button" data-computer="Razer Blade 14">Comprar</button>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-sm-6 d-flex align-items-stretch">
-                        <div class="mt-5 text-center w-100">
+                    <div class="col-lg-4 col-sm-6 text-center">
+                        <div class="mt-5">
                             <img class="img-fluid" src="assets/img/portfolio/thumbnails/4.jpg" alt="Laptop 2" />
-                            <h3 class="h4 mb-2">Macbook Pro 14</h3>
-                            <p class="text-muted mb-0">Perfecta para diseño grafico y uso personal</p>
-                            <a class="btn btn-primary btn-xl mt-3" href="#comprar">Comprar</a>
+                            <h3 class="h4 mb-2">Laptop 2</h3>
+                            <p class="text-muted mb-0">Perfecta para gaming y diseño gráfico.</p>
+                            <button class="btn btn-primary btn-xl mt-3 buy-button" data-computer="Laptop 2">Comprar</button>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-sm-6 d-flex align-items-stretch">
-                        <div class="mt-5 text-center w-100">
+                    <div class="col-lg-4 col-sm-6 text-center">
+                        <div class="mt-5">
                             <img class="img-fluid" src="assets/img/portfolio/thumbnails/3.jpg" alt="Laptop 3" />
-                            <h3 class="h4 mb-2">thinkpad E16</h3>
-                            <p class="text-muted mb-0">Excelente rendimiento para uso Empresarial</p>
-                            <a class="btn btn-primary btn-xl mt-3" href="#comprar">Comprar</a>
+                            <h3 class="h4 mb-2">Laptop 3</h3>
+                            <p class="text-muted mb-0">Excelente rendimiento para negocios.</p>
+                            <button class="btn btn-primary btn-xl mt-3 buy-button" data-computer="Laptop 3">Comprar</button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Call to action-->
+        <!-- Modal -->
+        <div class="modal fade" id="computerModal" tabindex="-1" aria-labelledby="computerModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="computerModalLabel">Detalles de la Computadora</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <img id="modalImage" class="img-fluid" src="" alt="Imagen de la Computadora">
+                            </div>
+                            <div class="col-lg-6">
+                                <h3 id="modalTitle">Nombre de la Computadora</h3>
+                                <p id="modalDescription">Descripción de la computadora.</p>
+                                <p><strong>Precio:</strong> <span id="modalPrice">$0.00</span></p>
+                                <a href="#comprar" class="btn btn-primary">Comprar Ahora</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Sección de contacto -->
         <section class="page-section" id="contact">
