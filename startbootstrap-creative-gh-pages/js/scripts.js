@@ -65,7 +65,7 @@ window.addEventListener('DOMContentLoaded', event => {
         price: '$2,500'
     },
         'Laptop 2': {
-        image: 'assets/img/portfolio/thumbnails/4.jpg',
+        image: 'assets/img/portfolio/thumbnails/macbook.jpg',
         description: 'Perfecta para gaming y diseño gráfico.',
         price: '$1,800'
     },

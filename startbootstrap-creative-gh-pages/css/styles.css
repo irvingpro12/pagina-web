@@ -10,6 +10,22 @@
  * Copyright 2011-2022 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+/* Alinear los elementos en una fila horizontal */
+#computadoras .row {
+  display: flex;
+  justify-content: space-between;
+}
+
+#computadoras .col-lg-4 {
+  flex: 1;
+  margin: 10px;
+  text-align: center;
+}
+
+#computadoras img {
+  max-width: 100%; /* Para que las imágenes no se salgan del contenedor */
+  height: auto; /* Ajustar la altura automáticamente */
+}
 
 :root {
   --bs-blue: #0d6efd;

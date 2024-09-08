@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seguimiento del Pedido</title>
+  <link rel="stylesheet" href="css/estilospagos.css">
+  <style>
+    /* Barra de estado */
+    .estado-pedido {
+      display: flex;
+      justify-content: space-between;
+      list-style-type: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+
+    .estado-pedido li {
+      flex: 1;
+      text-align: center;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .estado-pedido li.active {
+      background-color: #28a745;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Seguimiento del Pedido</h1>
+
+  <div id="detalles-computadora">
+    <img id="imagen-laptop" src="" alt="Imagen de la laptop seleccionada" />
+    <h2 id="nombre-laptop"></h2>
+    <p id="precio-laptop"></p>
+  </div>
+
+  <!-- Barra de estado -->
+  <ul class="estado-pedido">
+    <li id="estado-pagado">Pagado</li>
+    <li id="estado-almacen">Saliendo del almacén</li>
+    <li id="estado-transito">En tránsito</li>
+    <li id="estado-recibido">Recibido</li>
+  </ul>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  // Obtener los parámetros de la URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const nombre = urlParams.get('nombre');
+  const precio = urlParams.get('precio');
+  const imagen = urlParams.get('imagen');
+
+  // Mostrar los detalles de la computadora
+  document.getElementById('nombre-laptop').textContent = nombre;
+  document.getElementById('precio-laptop').textContent = `Precio: $${precio}`;
+  document.getElementById('imagen-laptop').src = imagen;
+
+  // Conectar con el servidor mediante socket.io
+  const socket = io();
+
+  // Función para actualizar el estado del pedido
+  function actualizarEstado(estado) {
+    document.getElementById('estado-pagado').classList.remove('active');
+    document.getElementById('estado-almacen').classList.remove('active');
+    document.getElementById('estado-transito').classList.remove('active');
+    document.getElementById('estado-recibido').classList.remove('active');
+
+    if (estado === 'pagado') {
+      document.getElementById('estado-pagado').classList.add('active');
+    } else if (estado === 'almacen') {
+      document.getElementById('estado-almacen').classList.add('active');
+    } else if (estado === 'transito') {
+      document.getElementById('estado-transito').classList.add('active');
+    } else if (estado === 'recibido') {
+      document.getElementById('estado-recibido').classList.add('active');
+    }
+  }
+
+  // Recibir los estados en tiempo real desde el servidor
+  socket.on('estadoActualizado', (estado) => {
+    actualizarEstado(estado);
+  });
+</script>
+</body>
+</html>

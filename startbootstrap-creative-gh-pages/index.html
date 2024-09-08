@@ -73,29 +73,28 @@
                             <img class="img-fluid" src="assets/img/portfolio/thumbnails/1.jpg" alt="Laptop 1" />
                             <h3 class="h4 mb-2">Razer Blade 14</h3>
                             <p class="text-muted mb-0">Ideal para Gaming</p>
-                            <button class="btn btn-primary btn-xl mt-3 buy-button" data-computer="Razer Blade 14">Comprar</button>
+                            <button class="btn btn-primary btn-xl mt-3" onclick="comprarAhora('Razer Blade 14',30000, 'assets/img/portfolio/thumbnails/1.jpg')">Comprar ahora</button>
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6 text-center">
                         <div class="mt-5">
-                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/4.jpg" alt="Laptop 2" />
-                            <h3 class="h4 mb-2">Laptop 2</h3>
+                            <img class="img-fluid" src="assets/img/portfolio/thumbnails/macbook.jpg" alt="Laptop 2" />
+                            <h3 class="h4 mb-2">MacBook Pro 14</h3>
                             <p class="text-muted mb-0">Perfecta para gaming y diseño gráfico.</p>
-                            <button class="btn btn-primary btn-xl mt-3 buy-button" data-computer="Laptop 2">Comprar</button>
+                            <button class="btn btn-primary btn-xl mt-3" onclick="comprarAhora('MacBook Pro 14',20500, 'assets/img/portfolio/thumbnails/macbook.jpg')">Comprar ahora</button>
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6 text-center">
                         <div class="mt-5">
                             <img class="img-fluid" src="assets/img/portfolio/thumbnails/3.jpg" alt="Laptop 3" />
-                            <h3 class="h4 mb-2">Laptop 3</h3>
+                            <h3 class="h4 mb-2">Lenovo Thinkpad </h3>
                             <p class="text-muted mb-0">Excelente rendimiento para negocios.</p>
-                            <button class="btn btn-primary btn-xl mt-3 buy-button" data-computer="Laptop 3">Comprar</button>
+                            <button class="btn btn-primary btn-xl mt-3" onclick="comprarAhora('Lenovo Thinkpad',15000, 'assets/img/portfolio/thumbnails/3.jpg')">Comprar ahora</button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
         <!-- Modal -->
         <div class="modal fade" id="computerModal" tabindex="-1" aria-labelledby="computerModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
@@ -163,6 +162,13 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <script>
+            function comprarAhora(nombre, precio, imagen) {
+                // Redirigir a la página de pago con los parámetros
+                window.location.href = `pago.html?nombre=${encodeURIComponent(nombre)}&precio=${encodeURIComponent(precio)}&imagen=${encodeURIComponent(imagen)}`;
+            }
+        </script>
+
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
