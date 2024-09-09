@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Seguimiento del Pedido</title>
   <link rel="stylesheet" href="css/estilospagos.css">
+  <link rel="icon" type="image/x-icon" href="assets/compu.png" />
   <style>
     /* Barra de estado */
     .estado-pedido {
@@ -27,6 +28,24 @@
       background-color: #28a745;
       color: white;
     }
+
+    /* Botón de regresar */
+    #btn-regresar {
+      display: none; /* Oculto por defecto */
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    #btn-regresar:hover {
+      background-color: #0056b3;
+    }
   </style>
 </head>
 <body>
@@ -46,6 +65,9 @@
     <li id="estado-transito">En tránsito</li>
     <li id="estado-recibido">Recibido</li>
   </ul>
+
+  <!-- Botón para regresar a la página principal -->
+  <button id="btn-regresar" onclick="window.location.href='index.html'">Regresar a inicio</button>
 </div>
 
 <script src="/socket.io/socket.io.js"></script>
@@ -79,6 +101,8 @@
       document.getElementById('estado-transito').classList.add('active');
     } else if (estado === 'recibido') {
       document.getElementById('estado-recibido').classList.add('active');
+      // Mostrar el botón cuando el estado sea "Recibido"
+      document.getElementById('btn-regresar').style.display = 'block';
     }
   }
 
